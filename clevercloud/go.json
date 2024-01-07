@@ -1,0 +1,6 @@
+{
+    "deploy": {
+      "makefile": "Makefile",
+      "main": "bin/myApp"
+    }
+  }
