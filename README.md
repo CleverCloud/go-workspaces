@@ -15,9 +15,10 @@ cd go-workspaces
 ```
 
 ## How to deploy on Clever Cloud - Makefile
-This repository contains a [`Makefile`](Makefile) and the [`clevercloud/go.json`](clevercloud/go.json) configuration file to declare it. You have nothing to do. Just create a Go application on your account and `git push`!
+This repository contains a [`Makefile`](Makefile). So you just have to create a Go application on your account, declare where is the built binary through `CC_GO_BINARY` environment variable and `git push`!
 ```bash
-clever create -t go go-workspaces
+clever create -t go
+clever env set CC_GO_BINARY bin/myApp
 git add . && git commit -m "First commit"
 clever deploy && clever domain
 ```
@@ -25,9 +26,9 @@ After that, your application should be built and deployed. Just type its URL in 
 
 ## How to deploy on Clever Cloud - Env vars
 
-If you prefer to rely on environment variables, delete `Makefile` and the `clevercloud/go.json` configuration file. The create process is this time followed by env vars declaration:
+If you prefer to rely on environment variables, delete `Makefile`. The create process is this time followed by env vars declaration:
 ```bash
-clever create -t go go-workspaces
+clever create -t go
 clever env set CC_GO_BUILD_TOOL "gomod"
 clever env set CC_GO_PKG "cmd/main.go"
 git add . && git commit -m "First commit"
